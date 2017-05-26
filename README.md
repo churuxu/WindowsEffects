@@ -6,7 +6,7 @@ WindowsEffects
  
 ----------
 
-* 图片和颜色混合
+* 图片和颜色混合 (CustomAlphaBlend)
 
 ![image](https://github.com/churuxu/WindowsEffects/blob/master/CustomAlphaBlend/preview.png?raw=true)
 
