@@ -10,4 +10,6 @@ WindowsEffects
 
 ![image](https://github.com/churuxu/WindowsEffects/blob/master/CustomAlphaBlend/preview.png?raw=true)
 
+* 3D窗口动画 (3DWindowAnimation)
 
+![image](https://github.com/churuxu/WindowsEffects/blob/master/3DWindowAnimation/preview.gif?raw=true)
