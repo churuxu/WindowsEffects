@@ -194,11 +194,13 @@ void UpdateAnimateFrame(int step) {
 	ReleaseDC(layerwnd_, hdc);	
 }
 
-void CALLBACK OnAnimateTimer(HWND hwnd, UINT message, UINT iTimerID, DWORD dwTime) {
+void CALLBACK OnAnimateTimer(HWND hwnd, UINT message, UINT_PTR iTimerID, DWORD dwTime) {
 	animstep_++;	
 	UpdateAnimateFrame(animstep_);	
-	if (animstep_ > 40) {
-		ShowWindow(animwnd_, SW_SHOW);
+	if (animstep_ == 37) {
+		ShowWindowAsync(animwnd_, SW_SHOW);
+	}
+	if (animstep_ > 40) {		
 		DeleteAnimationResources();
 		KillTimer(NULL, animtimer_);
 		ShowWindow(layerwnd_, SW_HIDE);		
@@ -210,7 +212,7 @@ void StartRotateWindow(HWND hwnd) {
 	if (CreateAnimationResources(hwnd)) {
 		RECT rc;
 		GetWindowRect(hwnd, &rc);
-		ShowWindow(hwnd, SW_HIDE);
+		ShowWindow(hwnd, SW_HIDE);		
 		x_ = rc.left;
 		y_ = rc.top;
 		animstep_ = 0;
@@ -266,7 +268,7 @@ int WINAPI _tWinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPTSTR lpCmd,int nSho
 	assert(bret2);
 
 	//create opengl resources
-	layerwnd_ = CreateWindowEx(WS_EX_LAYERED|WS_EX_TOOLWINDOW, _T("openglwnd"), NULL, 0,
+	layerwnd_ = CreateWindowEx(WS_EX_LAYERED, _T("openglwnd"), NULL, 0,
 		CW_USEDEFAULT, CW_USEDEFAULT, w_, h_,
 		NULL, NULL, hInst, NULL);
 	assert(layerwnd_);	
